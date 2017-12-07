@@ -10,10 +10,24 @@ import UIKit
 
 class MainViewController: UITabBarController {
 
+    //Swift点击事件走OC机制：要兼容OC机制需要添加@objc
+    @objc private func composeDidClick() {
+        debugPrint(#function)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //因为系统tabBar是只读的所有要设置一个新的tabBar可以通过KVC
+        let mainTabBar = MainTabBar()
+        setValue(mainTabBar, forKey: "tabBar")
+        
         addChildViewControllers()
+        
+        debugPrint(tabBar.classForCoder)
+        
+        //给mainTabBar添加点击事件
+        mainTabBar.composeBtn.addTarget(self, action: "composeDidClick", for: .touchUpInside)
     }
     
     private struct Constants {
@@ -27,7 +41,7 @@ class MainViewController: UITabBarController {
         static let DiscoverTabbarImageName = "tabbar_discover"
         static let ProfileTabbarImageName = "tabbar_profile"
     }
-
+    
     private func addChildViewControllers() {
         addChildViewController(vc: HomeTableViewController(), title: Constants.HomeTabbarName, imageName: Constants.HomeTabbarImageName)
         addChildViewController(vc: MessageTableViewController(), title: Constants.MessageTabbarName, imageName: Constants.MessageTabbarImageName)
