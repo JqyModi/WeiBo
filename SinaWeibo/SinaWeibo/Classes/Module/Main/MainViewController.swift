@@ -56,8 +56,9 @@ class MainViewController: UITabBarController {
         vc.title = title
         vc.tabBarItem.image = UIImage(named: imageName)
         
-        //设置主题色替换下面的操作
-        self.tabBar.tintColor = UIColor.orange
+        //设置主题色替换下面的操作：
+        //已在AppDelegate中设置全局的
+        //self.tabBar.tintColor = UIColor.orange
         
         //添加选中图片
 //        vc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
