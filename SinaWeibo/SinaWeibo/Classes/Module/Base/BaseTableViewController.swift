@@ -49,6 +49,12 @@ class BaseTableViewController: UITableViewController {
 extension BaseTableViewController: VisitorLoginViewDelegate {
     @objc func visitorWillLogin() {
         debugPrint("login in")
+        
+        //跳转到登录页
+        let oauth = OAuthViewController()
+        oauth.title = "登录"
+        let nav = UINavigationController(rootViewController: oauth)
+        present(nav, animated: true, completion: nil)
     }
     
     @objc func visitorWillRegister() {
