@@ -9,7 +9,7 @@
 import UIKit
 import AFNetworking
 
-private struct Constants {
+private struct OConstants {
     static let SinaBaseUrl = "https://api.weibo.com/"
     //请求授权码URL
     static let codeBaseUrl = SinaBaseUrl + "oauth2/authorize"
@@ -59,15 +59,8 @@ class OAuthViewController: UIViewController {
 }
 
 extension OAuthViewController: UIWebViewDelegate {
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        
-    }
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        
-    }
     //监控WebView的请求：request
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        
         //过滤不需要的请求
         //定义urlStr并判断是否为空
         guard let urlStr = request.url?.absoluteString else {
@@ -81,65 +74,17 @@ extension OAuthViewController: UIWebViewDelegate {
             return false
         }
         //1.截取code码：用户授权码
-        
         //遍历URL中参数列表
         //code=4101507e6de3516af19f8708dbf780a3
         let param = request.url?.query
         //构造出要截取的位置的Index
         let codeStr = "code="
         let code = param?.substring(from: codeStr.endIndex)
-//        debugPrint("url ========\(param)")
-//        debugPrint("code ========\(code)")
-        loadAccessToken(code: code!)
+        UserAccountViewModel().loadAccessToken(code: code!) { (error) in
+            debugPrint("finished~~~")
+            self.dismiss(animated: true, completion: nil)
+        }
         return true
     }
-    
-    /*
-     {
-     \"access_token\" = \"2.00BIrTZFGwCp9Eff9a493a7d7Wn49C\";\n    \"expires_in\" = 131462;\n    isRealName = true;\n    \"remind_in\" = 131462;\n    uid = 5104951661;\n}
-     */
-    //2.获取用户令牌
-    func loadAccessToken(code: String) {
-        let AFN = AFHTTPSessionManager()
-        let params = ["client_id": Constants.client_id,"client_secret": Constants.client_secret,"grant_type": "authorization_code","code": code,"redirect_uri": Constants.redirect_uri]
-        AFN.post(Constants.tokenBaseUrl, parameters: params, progress: nil, success: { (_, data) in
-            //获取到用户令牌
-            debugPrint("data = \(data)")
-            if let dict = data as? [String : Any] {
-                
-                //将字典转为UserAccount模型类
-                let account = UserAccount(dict: dict)
-                
-                
-                debugPrint("account = \(account.description)")
-                
-                let accessToken = dict["access_token"] as? String
-                let uid = dict["uid"] as? String
-                self.loadUserInfo(accessToken: accessToken!, uid: uid!)
-            }
-            
-        }) { (_, error) in
-            debugPrint("error = \(error)")
-        }
-    }
-    //3.获取用户信息: 酷客_VB
-    func loadUserInfo(accessToken: String, uid: String) {
-//        let url = Constants.userInfoUrl
-        let url = "https://api.weibo.com/2/users/show.json"
-        let params = ["access_token" : accessToken, "uid" : uid]
-        let AFN = AFHTTPSessionManager()
-        AFN.get(url, parameters: params, progress: nil, success: { (_, data) in
-            debugPrint("data = \(data)")
-            
-            if let dict = data as? [String : Any] {
-                
-                //将字典转为UserAccount模型类
-//                let account = UserAccount(dict: dict)
-//                debugPrint("account = \(account)")
-            }
-            
-        }) { (_, error) in
-            debugPrint("error = \(error)")
-        }
-    }
+
 }

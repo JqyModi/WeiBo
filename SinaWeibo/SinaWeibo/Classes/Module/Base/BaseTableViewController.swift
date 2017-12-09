@@ -7,14 +7,15 @@
 //
 
 import UIKit
-private struct Constants {
+private struct BConstants {
     static let NavLeftBtnText = "登录"
     static let NavRightBtnText = "注册"
 }
 class BaseTableViewController: UITableViewController {
 
     //设置是否登录开关
-    var userLogin = false
+//    var userLogin = false
+    var userLogin = UserAccount.loadAccount() != nil
     
     var visitorView: VisitorLoginView?
     
@@ -38,8 +39,8 @@ class BaseTableViewController: UITableViewController {
         visitorView?.visitorDelegate = self
         
         //设置导航栏按钮
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Constants.NavLeftBtnText, style: .done, target: self, action: #selector(BaseTableViewController.visitorWillLogin))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Constants.NavRightBtnText, style: .done, target: self, action: #selector(BaseTableViewController.visitorWillRegister))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: BConstants.NavLeftBtnText, style: .done, target: self, action: #selector(BaseTableViewController.visitorWillLogin))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: BConstants.NavRightBtnText, style: .done, target: self, action: #selector(BaseTableViewController.visitorWillRegister))
         
         //设置主题色：在此设置主题色会出现刚开始没有渲染成功需要点击操作后才能触发
         //已在AppDelegate中设置全局的

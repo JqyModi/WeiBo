@@ -7,7 +7,7 @@
 //
 
 import UIKit
-private struct Constants {
+private struct VConstants {
     static let CircleImageViewName = "visitordiscover_feed_image_smallicon"
     static let IconImageViewName = "visitordiscover_feed_image_house"
     static let TipLableText = "关注一些人，回来看看这里有什么惊喜。关注一些人，回来看看这里有什么惊喜。"
@@ -76,7 +76,7 @@ class VisitorLoginView: UIView {
     }
     
     func startAnimation() {
-        let caAnim = CABasicAnimation(keyPath: Constants.CAAnimationKeyPath)
+        let caAnim = CABasicAnimation(keyPath: VConstants.CAAnimationKeyPath)
         caAnim.toValue = 2 * M_PI
         caAnim.duration = 20
         caAnim.repeatCount = HUGE
@@ -136,9 +136,9 @@ class VisitorLoginView: UIView {
         
         //添加遮罩约束：VFL
         //水平方向
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: Constants.BackViewHorizontalConstraintFormat, options: [], metrics: nil, views: [Constants.BackViewConstraintKey : backView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: VConstants.BackViewHorizontalConstraintFormat, options: [], metrics: nil, views: [VConstants.BackViewConstraintKey : backView]))
         //竖直方向
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: Constants.BackViewVerticalConstraintFormat, options: [], metrics: nil, views: [Constants.BackViewConstraintKey : backView, Constants.RegisterBtnConstraintKey : registerBtn]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: VConstants.BackViewVerticalConstraintFormat, options: [], metrics: nil, views: [VConstants.BackViewConstraintKey : backView, VConstants.RegisterBtnConstraintKey : registerBtn]))
         
         //设置背景颜色消除色差：设置灰度0.93
         backgroundColor = UIColor(white: 0.93, alpha: 1)
@@ -149,15 +149,15 @@ class VisitorLoginView: UIView {
     }
     
     //延时加载所有子视图
-    private lazy var circleView: UIImageView = UIImageView(image: UIImage(named: Constants.CircleImageViewName))
+    private lazy var circleView: UIImageView = UIImageView(image: UIImage(named: VConstants.CircleImageViewName))
     
-    private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: Constants.IconImageViewName))
+    private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: VConstants.IconImageViewName))
     
     private lazy var tipLabel: UILabel = {
         let l = UILabel()
-        l.text = Constants.TipLableText
+        l.text = VConstants.TipLableText
         l.textAlignment = .center
-        l.font = UIFont.systemFont(ofSize: Constants.TipLabelFontSize)
+        l.font = UIFont.systemFont(ofSize: VConstants.TipLabelFontSize)
         l.textColor = UIColor.lightGray
         l.numberOfLines = 0
         //
@@ -167,21 +167,21 @@ class VisitorLoginView: UIView {
     
     private lazy var loginBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitle(Constants.LoginBtnText, for: .normal)
-        btn.setBackgroundImage(UIImage(named: Constants.LoginBtnImageNameBG), for: .normal)
+        btn.setTitle(VConstants.LoginBtnText, for: .normal)
+        btn.setBackgroundImage(UIImage(named: VConstants.LoginBtnImageNameBG), for: .normal)
         btn.setTitleColor(UIColor.lightGray, for: .normal)
         return btn
     }()
     
     private lazy var registerBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitle(Constants.RegisterBtnText, for: .normal)
-        btn.setBackgroundImage(UIImage(named: Constants.RegisterBtnImageNameBG), for: .normal)
+        btn.setTitle(VConstants.RegisterBtnText, for: .normal)
+        btn.setBackgroundImage(UIImage(named: VConstants.RegisterBtnImageNameBG), for: .normal)
         btn.setTitleColor(UIColor.orange, for: .normal)
         return btn
     }()
     
-    private lazy var backView: UIImageView = UIImageView(image: UIImage(named: Constants.MaskImageViewName))
+    private lazy var backView: UIImageView = UIImageView(image: UIImage(named: VConstants.MaskImageViewName))
 }
 
 

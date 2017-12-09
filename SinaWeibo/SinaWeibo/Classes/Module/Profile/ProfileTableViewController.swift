@@ -7,7 +7,7 @@
 //
 
 import UIKit
-private struct Constants {
+private struct PConstants {
     static let IconViewImageName = "visitordiscover_image_profile"
     static let TipLabelText = "登录后，你的微博、相册、个人资料显示在这里，展示给别人"
 }
@@ -15,7 +15,7 @@ class ProfileTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        visitorView?.setupUIInfo(imageName: Constants.IconViewImageName, text: Constants.TipLabelText)
+        visitorView?.setupUIInfo(imageName: PConstants.IconViewImageName, text: PConstants.TipLabelText)
     }
 
 }

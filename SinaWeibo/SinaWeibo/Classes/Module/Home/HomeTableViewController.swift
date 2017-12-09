@@ -7,7 +7,7 @@
 //
 
 import UIKit
-private struct Constants {
+private struct HConstants {
     //主页图片已经在VisitorLoginView中设置好了
     static let IconImageViewName = "visitordiscover_feed_image_house"
     static let TipLableText = "关注一些人，回来看看这里有什么惊喜。关注一些人，回来看看这里有什么惊喜。"
@@ -18,7 +18,7 @@ class HomeTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        visitorView?.setupUIInfo(imageName: nil, text: Constants.TipLableText)
+        visitorView?.setupUIInfo(imageName: nil, text: HConstants.TipLableText)
     }
 
     

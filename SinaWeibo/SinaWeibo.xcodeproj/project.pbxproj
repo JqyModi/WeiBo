@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04210CBD1FDB8E5C007CB91A /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */; };
 		04305DC21FD9315E006D5A13 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04305DC11FD9315E006D5A13 /* Common.swift */; };
 		04A0B6641FD7CAF900013BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0B6631FD7CAF900013BE5 /* AppDelegate.swift */; };
 		04A0B66B1FD7CAF900013BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A0B66A1FD7CAF900013BE5 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		04305DC11FD9315E006D5A13 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		04A0B6601FD7CAF900013BE5 /* SinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A0B6631FD7CAF900013BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		04A0B67E1FD7CC6500013BE5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04210CBD1FDB8E5C007CB91A /* UserAccountViewModel.swift in Sources */,
 				04A0B6901FD7CEFC00013BE5 /* ProfileTableViewController.swift in Sources */,
 				04A0B68A1FD7CE8E00013BE5 /* HomeTableViewController.swift in Sources */,
 				04BD49FB1FD8D8A4004B1A1F /* BaseTableViewController.swift in Sources */,
