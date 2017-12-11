@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		04210CBD1FDB8E5C007CB91A /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */; };
 		04305DC21FD9315E006D5A13 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04305DC11FD9315E006D5A13 /* Common.swift */; };
+		044CC7651FDE552200C68446 /* WelComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7641FDE552200C68446 /* WelComeViewController.swift */; };
+		044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */; };
 		04A0B6641FD7CAF900013BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0B6631FD7CAF900013BE5 /* AppDelegate.swift */; };
 		04A0B66B1FD7CAF900013BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A0B66A1FD7CAF900013BE5 /* Assets.xcassets */; };
 		04A0B6801FD7CD3D00013BE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0B67F1FD7CD3D00013BE5 /* MainViewController.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		04305DC11FD9315E006D5A13 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		044CC7641FDE552200C68446 /* WelComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelComeViewController.swift; sourceTree = "<group>"; };
+		044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		04A0B6601FD7CAF900013BE5 /* SinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A0B6631FD7CAF900013BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A0B66A1FD7CAF900013BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044CC7631FDE54F300C68446 /* WelCome */ = {
+			isa = PBXGroup;
+			children = (
+				044CC7641FDE552200C68446 /* WelComeViewController.swift */,
+				044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */,
+			);
+			path = WelCome;
+			sourceTree = "<group>";
+		};
 		04A0B6571FD7CAF900013BE5 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 		04A0B6771FD7CC6500013BE5 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				044CC7631FDE54F300C68446 /* WelCome */,
 				04C385781FDA186E0090D6D5 /* OAuth */,
 				04BD49F91FD8D846004B1A1F /* Base */,
 				04A0B67A1FD7CC6500013BE5 /* Main */,
@@ -353,6 +367,8 @@
 				04305DC21FD9315E006D5A13 /* Common.swift in Sources */,
 				04C3857A1FDA18AE0090D6D5 /* OAuthViewController.swift in Sources */,
 				04A0B6801FD7CD3D00013BE5 /* MainViewController.swift in Sources */,
+				044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */,
+				044CC7651FDE552200C68446 /* WelComeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

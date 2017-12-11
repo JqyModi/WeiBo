@@ -15,7 +15,7 @@ class BaseTableViewController: UITableViewController {
 
     //设置是否登录开关
 //    var userLogin = false
-    var userLogin = UserAccount.loadAccount() != nil
+    var userLogin = UserAccountViewModel().userLogin
     
     var visitorView: VisitorLoginView?
     

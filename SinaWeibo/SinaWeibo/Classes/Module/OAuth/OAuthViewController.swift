@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import SVProgressHUD
 
 private struct OConstants {
     static let SinaBaseUrl = "https://api.weibo.com/"
@@ -82,6 +83,11 @@ extension OAuthViewController: UIWebViewDelegate {
         let code = param?.substring(from: codeStr.endIndex)
         UserAccountViewModel().loadAccessToken(code: code!) { (error) in
             debugPrint("finished~~~")
+            if error != nil {
+                SVProgressHUD.showInfo(withStatus: "网络君正在睡觉💤请稍后再来~~·")
+                return
+            }
+            
             self.dismiss(animated: true, completion: nil)
         }
         return true

@@ -10,6 +10,26 @@ import Foundation
 import AFNetworking
 
 class UserAccountViewModel {
+    
+    //提取常用属性
+    var account: UserAccount?
+    
+    var userLogin:Bool {
+        return account?.access_token != nil
+    }
+    
+    init() {
+        account = UserAccount.loadAccount()
+    }
+    
+    var userName: String? {
+        return account?.name
+    }
+    
+    var headURL: NSURL? {
+        return NSURL(string: (account?.avatar_large ?? ""))
+    }
+    
     //2.获取用户令牌
     func loadAccessToken(code: String, finished: @escaping (_ error: Error?) -> ()) {
         let AFN = AFHTTPSessionManager()

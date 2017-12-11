@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //设置跟视图
-        window?.rootViewController = MainViewController()
+//        window?.rootViewController = MainViewController()
+        //新增欢迎页
+//        window?.rootViewController = WelComeViewController()
+        //新增引导页:重写了构造方法不需要传递参数
+        window?.rootViewController = NewFeatureCollectionViewController()
         
         //设置全局主题色
         setThemeColor()

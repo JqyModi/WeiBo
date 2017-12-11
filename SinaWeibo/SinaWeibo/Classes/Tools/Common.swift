@@ -24,3 +24,6 @@ struct Constants {
 }
 let themeColor = UIColor.orange
 
+let screenW = UIScreen.main.bounds.width
+let screenH = UIScreen.main.bounds.height
+
