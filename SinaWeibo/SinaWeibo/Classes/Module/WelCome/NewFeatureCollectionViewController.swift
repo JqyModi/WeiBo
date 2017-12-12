@@ -88,9 +88,17 @@ class NewFeatureCollectionViewController: UICollectionViewController {
 
 class NewFeatureCell: UICollectionViewCell {
     
+    @objc private func start() {
+        debugPrint("开始体验")
+        //发送页面切换通知2
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: AppSwitchRootViewController), object: nil)
+    }
+    
     var index: Int = 0 {
         didSet {
             iconImage.image = UIImage(named: "new_feature_\(index + 1)")
+            //解决第一页出现 “开始体验” 按钮BUG2 : 主要这步骤
+            startButton.isHidden = true
         }
     }
     
@@ -104,12 +112,15 @@ class NewFeatureCell: UICollectionViewCell {
     }
     
     func startAnimation() {
-        //显示
-        startButton.isHidden = false
+        //解决第一页出现 “开始体验” 按钮BUG3
+//        startButton.isHidden = false
         //设置动画效果
         //变换坐标矩阵：放大并带弹簧效果
         startButton.transform = CGAffineTransform.init(scaleX: 0, y: 0)
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
+            //显示
+            //解决第一页出现 “开始体验” 按钮BUG4
+            self.startButton.isHidden = false
             self.startButton.transform = CGAffineTransform.identity
         }) { (_) in
             debugPrint("OK ~")
@@ -129,19 +140,27 @@ class NewFeatureCell: UICollectionViewCell {
             make.bottom.equalTo(contentView.snp.bottom).offset(-200)
             make.centerX.equalTo(contentView.snp.centerX)
         }
+        
+        //添加开始按钮点击事件
+        startButton.addTarget(self, action: "start", for: .touchUpInside)
+        //隐藏按钮
+        //解决第一页出现 “开始体验” 按钮BUG1
+//        startButton.isHidden = true
+        
     }
     
     //延时加载子控件
     private lazy var iconImage: UIImageView = UIImageView()
     
-    private lazy var startButton: UIButton = {
-        let btn = UIButton()
-        btn.setBackgroundImage(UIImage(named: "new_feature_finish_button"), for: .normal)
-        btn.setBackgroundImage(UIImage(named: "new_feature_finish_button_highlighted"), for: .highlighted)
-        btn.setTitle("开始体验", for: .normal)
-        btn.sizeToFit()
-        //开始隐藏
-        btn.isHidden = true
-        return btn
-    }()
+//    private lazy var startButton: UIButton = {
+//        let btn = UIButton()
+//        btn.setBackgroundImage(UIImage(named: "new_feature_finish_button"), for: .normal)
+//        btn.setBackgroundImage(UIImage(named: "new_feature_finish_button_highlighted"), for: .highlighted)
+//        btn.setTitle("开始体验", for: .normal)
+//        btn.sizeToFit()
+//        //开始隐藏
+//        btn.isHidden = true
+//        return btn
+//    }()
+    private lazy var startButton: UIButton = UIButton(title: "开始体验", backImage: "new_feature_finish_button", color: .white)
 }

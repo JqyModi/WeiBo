@@ -153,18 +153,20 @@ class VisitorLoginView: UIView {
     
     private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: VConstants.IconImageViewName))
     
-    private lazy var tipLabel: UILabel = {
-        let l = UILabel()
-        l.text = VConstants.TipLableText
-        l.textAlignment = .center
-        l.font = UIFont.systemFont(ofSize: VConstants.TipLabelFontSize)
-        l.textColor = UIColor.lightGray
-        l.numberOfLines = 0
-        //
-        l.sizeToFit()
-        return l
-    }()
+//    private lazy var tipLabel: UILabel = {
+//        let l = UILabel()
+//        l.text = VConstants.TipLableText
+//        l.textAlignment = .center
+//        l.font = UIFont.systemFont(ofSize: VConstants.TipLabelFontSize)
+//        l.textColor = UIColor.lightGray
+//        l.numberOfLines = 0
+//        //
+//        l.sizeToFit()
+//        return l
+//    }()
+    private lazy var tipLabel: UILabel = UILabel(title: VConstants.TipLableText, fontSize: VConstants.TipLabelFontSize, color: .lightGray)
     
+    /*
     private lazy var loginBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle(VConstants.LoginBtnText, for: .normal)
@@ -180,6 +182,10 @@ class VisitorLoginView: UIView {
         btn.setTitleColor(UIColor.orange, for: .normal)
         return btn
     }()
+    */
+    private lazy var loginBtn: UIButton = UIButton(title: VConstants.LoginBtnText, backImage: VConstants.LoginBtnImageNameBG, color: .lightGray)
+        
+    private lazy var registerBtn: UIButton = UIButton(title: VConstants.RegisterBtnText, backImage: VConstants.RegisterBtnImageNameBG, color: .orange)
     
     private lazy var backView: UIImageView = UIImageView(image: UIImage(named: VConstants.MaskImageViewName))
 }

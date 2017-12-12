@@ -22,8 +22,20 @@ struct Constants {
     static let client_secret = "e05466cab537175d1ec28314154bd160"
     static let redirect_uri = "http://39.108.219.113/Music/index.html"
 }
+
+//MARK: HOME背景色
+let homeBGColor = UIColor(white: 0.95, alpha: 1)
+
 let themeColor = UIColor.orange
 
 let screenW = UIScreen.main.bounds.width
 let screenH = UIScreen.main.bounds.height
+
+//通知相关信息
+let AppSwitchRootViewController = "AppSwitchRootViewController"
+
+
+//错误提示相关信息
+//网络开小差了 ~
+let AppErrorTip = "网络君正在睡觉💤 请稍后再来~~·"
 

@@ -26,6 +26,10 @@ class UserAccountViewModel {
         return account?.name
     }
     
+    var token: String? {
+        return account?.access_token
+    }
+    
     var headURL: NSURL? {
         return NSURL(string: (account?.avatar_large ?? ""))
     }

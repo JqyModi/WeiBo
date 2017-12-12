@@ -84,11 +84,14 @@ extension OAuthViewController: UIWebViewDelegate {
         UserAccountViewModel().loadAccessToken(code: code!) { (error) in
             debugPrint("finished~~~")
             if error != nil {
-                SVProgressHUD.showInfo(withStatus: "网络君正在睡觉💤请稍后再来~~·")
+                SVProgressHUD.showInfo(withStatus: AppErrorTip)
                 return
             }
             
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: {
+                //发送页面切换通知3
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: AppSwitchRootViewController), object: "WebCome")
+            })
         }
         return true
     }
