@@ -7,8 +7,13 @@
 //
 
 import UIKit
+//自动布局
+import SnapKit
 
 class StatusOriginalView: UIView {
+    
+    //记录底部约束
+    var bottomConstraint: Constraint?
     
     var status: Status? {
         didSet {
@@ -23,7 +28,32 @@ class StatusOriginalView: UIView {
 //            sourceLabel.text = status?.source
             sourceLabel.text = "来自：秒拍网"
             contentLabel.text = status?.text
-//            contentLabel.backgroundColor = UIColor.orange
+            
+            //设置配图图片资源
+//            pictureView.imageURLs = status?.imageURLs
+            
+            //更新约束前先去掉原来的约束
+            self.bottomConstraint?.deactivate()
+            
+            //判断有无配图再动态显示底部视图：多个判断条件用逗号隔开
+            if let picurls = status?.imageURLs, picurls.count > 0 {
+                //有配图
+                pictureView.imageURLs = status?.imageURLs
+                //显示
+                pictureView.isHidden = false
+                //更新约束
+                self.snp.updateConstraints({ (make) in
+                    self.bottomConstraint = make.bottom.equalTo(pictureView.snp.bottom).offset(StatusCellMargin).constraint
+                })
+            }else {
+                //无配图
+                //显示
+                pictureView.isHidden = true
+                //更新约束
+                self.snp.updateConstraints({ (make) in
+                    self.bottomConstraint = make.bottom.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin).constraint
+                })
+            }
         }
     }
 
@@ -49,6 +79,10 @@ class StatusOriginalView: UIView {
         addSubview(timeLabel)
         addSubview(sourceLabel)
         addSubview(contentLabel)
+        
+        //添加配图布局
+        addSubview(pictureView)
+        
         //设置布局约束
         iconImage.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(StatusCellMargin)
@@ -84,9 +118,24 @@ class StatusOriginalView: UIView {
         }
         
         
+        pictureView.snp.makeConstraints { (make) in
+            make.top.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin)
+            //
+//            make.left.equalTo(contentLabel.snp.left).offset(StatusCellMargin)
+            make.left.equalTo(contentLabel.snp.left)
+            //加上文字不见了？
+//            make.right.equalTo(contentLabel.snp.right)
+            //设置预估值后面再更新
+//            make.width.equalTo(100)
+//            make.height.equalTo(100)
+        }
+        
+        
         //Cell自动布局4
         self.snp.makeConstraints { (make) in
-            make.bottom.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin)
+//            make.bottom.equalTo(pictureView.snp.bottom).offset(StatusCellMargin)
+            //将约束转换成约束类型：记录底部约束
+            self.bottomConstraint = make.bottom.equalTo(pictureView.snp.bottom).offset(StatusCellMargin).constraint
         }
     }
     
@@ -104,4 +153,6 @@ class StatusOriginalView: UIView {
     //微博正文
     private lazy var contentLabel: UILabel = UILabel(title: "  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,", fontSize: 14, color: .lightGray, margin: StatusCellMargin)
     
+    //添加Picture布局
+    private lazy var pictureView: StatusPictureView = StatusPictureView()
 }

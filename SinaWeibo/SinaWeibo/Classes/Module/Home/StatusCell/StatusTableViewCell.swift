@@ -35,6 +35,9 @@ class StatusTableViewCell: UITableViewCell {
         contentView.addSubview(originalView)
         //添加底部点赞视图
         contentView.addSubview(bottomView)
+        //
+//        contentView.addSubview(pictureView)
+        
         
         //添加布局约束
         originalView.snp.makeConstraints { (make) in
@@ -45,9 +48,17 @@ class StatusTableViewCell: UITableViewCell {
 //            make.height.equalTo(50)
         }
         
+//        pictureView.snp.makeConstraints { (make) in
+//            make.top.equalTo(originalView.snp.bottom).offset(StatusCellMargin)
+//            make.left.equalTo(originalView.snp.left).offset(StatusCellMargin)
+//            make.width.equalTo(100)
+//            make.height.equalTo(100)
+//        }
+        
         bottomView.snp.makeConstraints { (make) in
 //            make.top.equalTo(originalView.snp.bottom).offset(StatusCellMargin)
             make.top.equalTo(originalView.snp.bottom)
+//            make.top.equalTo(pictureView.snp.bottom).offset(StatusCellMargin)
             make.left.equalTo(snp.left)
             make.right.equalTo(snp.right)
             //高度设置40：snapKit设置自动布局的关键是要将高度自适应的控件放在固定视图之间，如这里的BottomView的位置可以确定才能顺利计算出中间contentLabel的高度，否则都是不确定的高度Cell也不能自动计算行高
@@ -70,4 +81,6 @@ class StatusTableViewCell: UITableViewCell {
     private lazy var originalView: StatusOriginalView = StatusOriginalView()
     //添加底部点赞等布局
     private lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
+    //添加Picture布局
+//    private lazy var pictureView: StatusPictureView = StatusPictureView()
 }

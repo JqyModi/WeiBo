@@ -18,6 +18,22 @@ class Status: NSObject {
     //新增user属性
     @objc var user: User?
     
+    //配图资源：pic_urls
+    @objc var pic_urls: [[String : String]]?
+    
+    var imageURLs: [NSURL]? {
+        guard let urls = pic_urls else {
+            return nil
+        }
+        var tempArray = [NSURL]()
+        for item in urls {
+            //可能为空
+            let url = NSURL(string: item["thumbnail_pic"]!)
+            tempArray.append(url!)
+        }
+        return tempArray
+    }
+    
     init(dict: [String : Any]) {
         super.init()
         //
