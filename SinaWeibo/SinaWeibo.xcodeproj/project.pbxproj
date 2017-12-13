@@ -13,6 +13,7 @@
 		044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */; };
 		044CEAF01FDF5D450006694A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */; };
 		044CEAF21FDF61A40006694A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAF11FDF61A40006694A /* UILabel+Extension.swift */; };
+		047116DF1FE0CF860000956E /* StatusCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047116DE1FE0CF860000956E /* StatusCellBottomView.swift */; };
 		04A0B6641FD7CAF900013BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0B6631FD7CAF900013BE5 /* AppDelegate.swift */; };
 		04A0B66B1FD7CAF900013BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A0B66A1FD7CAF900013BE5 /* Assets.xcassets */; };
 		04A0B6801FD7CD3D00013BE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0B67F1FD7CD3D00013BE5 /* MainViewController.swift */; };
@@ -39,6 +40,7 @@
 		044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		044CEAF11FDF61A40006694A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		047116DE1FE0CF860000956E /* StatusCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellBottomView.swift; sourceTree = "<group>"; };
 		04A0B6601FD7CAF900013BE5 /* SinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A0B6631FD7CAF900013BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A0B66A1FD7CAF900013BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				04DB570D1FDFC4C400CD89EB /* StatusOriginalView.swift */,
 				04DB570F1FDFC9B500CD89EB /* StatusTableViewCell.swift */,
+				047116DE1FE0CF860000956E /* StatusCellBottomView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				04DB570E1FDFC4C400CD89EB /* StatusOriginalView.swift in Sources */,
 				04A0B68A1FD7CE8E00013BE5 /* HomeTableViewController.swift in Sources */,
 				04BD49FB1FD8D8A4004B1A1F /* BaseTableViewController.swift in Sources */,
+				047116DF1FE0CF860000956E /* StatusCellBottomView.swift in Sources */,
 				04AB46D81FDF847800EF3032 /* Status.swift in Sources */,
 				04BD49F81FD8BF37004B1A1F /* MainTabBar.swift in Sources */,
 				044CEAF01FDF5D450006694A /* UIButton+Extension.swift in Sources */,

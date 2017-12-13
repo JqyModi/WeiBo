@@ -9,6 +9,23 @@
 import UIKit
 
 class StatusOriginalView: UIView {
+    
+    var status: Status? {
+        didSet {
+            //给控件赋值显示
+            //需要info添加HTTP请求支持
+            iconImage.setImageWith(status?.user?.headImageURL as! URL, placeholderImage: UIImage(named: "avatar_default_big"))
+            nameLabel.text = status?.user?.name
+            verifiedIconView.image = status?.user?.verified_type_Image
+            memberIconView.image = status?.user?.mbrankImage
+//            timeLabel.text = status?.created_at
+            timeLabel.text = "11:11"
+//            sourceLabel.text = status?.source
+            sourceLabel.text = "来自：秒拍网"
+            contentLabel.text = status?.text
+//            contentLabel.backgroundColor = UIColor.orange
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,8 +43,9 @@ class StatusOriginalView: UIView {
         addSubview(iconImage)
         addSubview(nameLabel)
         //
-        addSubview(verifiedIconView)
         addSubview(memberIconView)
+        addSubview(verifiedIconView)
+        
         addSubview(timeLabel)
         addSubview(sourceLabel)
         addSubview(contentLabel)
@@ -60,14 +78,21 @@ class StatusOriginalView: UIView {
         }
         contentLabel.snp.makeConstraints { (make) in
             make.top.equalTo(iconImage.snp.bottom).offset(StatusCellMargin)
-            make.left.equalTo(iconImage.snp.right)
+            //??
+            make.left.equalTo(iconImage)
+//            make.width.equalTo(screenW - 2*StatusCellMargin)
         }
         
+        
+        //Cell自动布局4
+        self.snp.makeConstraints { (make) in
+            make.bottom.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin)
+        }
     }
     
     //定义延时加载控件
     private lazy var iconImage: UIImageView = UIImageView(image: UIImage(named: "avatar_default_big"))
-    private lazy var nameLabel: UILabel = UILabel(title: "酷客_VB", fontSize: 17, color: .darkGray)
+    private lazy var nameLabel: UILabel = UILabel(title: "酷客_VB", fontSize: 14, color: .darkGray)
     //用户认证类型小图标
     private lazy var verifiedIconView: UIImageView = UIImageView(image: UIImage(named: "avatar_vip"))
     //用户等级小图标
@@ -77,6 +102,6 @@ class StatusOriginalView: UIView {
     //微博来源
     private lazy var sourceLabel: UILabel = UILabel(title: "来自: 火星🔥", fontSize: 10, color: .lightGray)
     //微博正文
-    private lazy var contentLabel: UILabel = UILabel(title: "酷客_攻城狮", fontSize: 14, color: .lightGray)
+    private lazy var contentLabel: UILabel = UILabel(title: "  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,  酷客_攻城狮,", fontSize: 14, color: .lightGray, margin: StatusCellMargin)
     
 }

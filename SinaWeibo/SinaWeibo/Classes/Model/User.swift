@@ -31,9 +31,9 @@ class User: NSObject {
         switch verified_type {
         case 0:
             return UIImage(named: "avatar_vip")
-        case 0:
+        case 2,3,5:
             return UIImage(named: "avatar_enterprise_vip")
-        case 0:
+        case 220:
             return UIImage(named: "avatar_grassroot")
         default:
             return nil

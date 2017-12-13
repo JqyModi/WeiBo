@@ -25,7 +25,10 @@ class HomeTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        visitorView?.setupUIInfo(imageName: nil, text: HConstants.TipLableText)
+        //
+        if !userLogin {
+            visitorView?.setupUIInfo(imageName: nil, text: HConstants.TipLableText)
+        }
         
         prepareTableView()
         
@@ -45,9 +48,15 @@ class HomeTableViewController: BaseTableViewController {
     
     private func prepareTableView() {
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        self.tableView.register(StatusTableViewCell.classForCoder(), forCellReuseIdentifier: reuseIdentifier)
+        self.tableView.register(StatusTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         //设置行高
-        self.tableView.rowHeight = 100
+        self.tableView.rowHeight = 200
+        
+        //自动计算行高：Cell自动布局1
+        //1.设置估计值
+        self.tableView.estimatedRowHeight = tableView.rowHeight
+        //2.设置自动计算
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     private func loadData(finished: @escaping (_ array: [Status]?) -> ()) {
@@ -90,8 +99,10 @@ extension HomeTableViewController {
         return statuses.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? StatusTableViewCell
-//        cell?.textLabel?.text = statuses[indexPath.row].user?.name
+//        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? StatusTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? StatusTableViewCell
+        //展示数据
+        cell?.status = statuses[indexPath.row]
         return cell!
     }
 }

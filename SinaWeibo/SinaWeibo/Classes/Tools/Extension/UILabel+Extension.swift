@@ -15,7 +15,8 @@ extension UILabel {
         //初始化控件
         self.init()
         text = title
-        font = UIFont.boldSystemFont(ofSize: fontSize)
+//        font = UIFont.boldSystemFont(ofSize: fontSize)
+        font = UIFont.systemFont(ofSize: fontSize)
         textColor = color
         textAlignment = .center
         numberOfLines = 0
@@ -26,7 +27,7 @@ extension UILabel {
             preferredMaxLayoutWidth = screenW - 2 * margin
             textAlignment = .left
         }
-        
+//        backgroundColor = UIColor.orange
         sizeToFit()
     }
 }
