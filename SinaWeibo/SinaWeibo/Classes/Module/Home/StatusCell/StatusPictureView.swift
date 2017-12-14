@@ -101,7 +101,7 @@ class StatusPictureView: UICollectionView {
 
 extension StatusPictureView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (imageURLs?.count)!
+        return imageURLs?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

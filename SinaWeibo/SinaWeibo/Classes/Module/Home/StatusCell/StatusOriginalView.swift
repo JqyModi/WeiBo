@@ -42,7 +42,7 @@ class StatusOriginalView: UIView {
                 //显示
                 pictureView.isHidden = false
                 //更新约束
-                self.snp.updateConstraints({ (make) in
+                self.snp.makeConstraints({ (make) in
                     self.bottomConstraint = make.bottom.equalTo(pictureView.snp.bottom).offset(StatusCellMargin).constraint
                 })
             }else {
@@ -50,7 +50,7 @@ class StatusOriginalView: UIView {
                 //显示
                 pictureView.isHidden = true
                 //更新约束
-                self.snp.updateConstraints({ (make) in
+                self.snp.makeConstraints({ (make) in
                     self.bottomConstraint = make.bottom.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin).constraint
                 })
             }
@@ -126,8 +126,8 @@ class StatusOriginalView: UIView {
             //加上文字不见了？
 //            make.right.equalTo(contentLabel.snp.right)
             //设置预估值后面再更新
-//            make.width.equalTo(100)
-//            make.height.equalTo(100)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
         }
         
         
