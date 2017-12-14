@@ -37,11 +37,15 @@ class HomeTableViewController: BaseTableViewController {
         
     }
     
-    private func loadData() {
+    @objc private func loadData() {
         StatusListViewModel().loadData(finished: { (statuses) in
             if statuses?.count == nil {
                 SVProgressHUD.showInfo(withStatus: AppErrorTip)
             }
+            
+            //请求成功停止下拉刷新
+            self.refreshControl?.endRefreshing()
+            
             //获取到数据：初始化数据模型
             self.statuses = statuses!
             //刷新表格
@@ -55,6 +59,11 @@ class HomeTableViewController: BaseTableViewController {
         self.tableView.register(StatusTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         //设置行高
         self.tableView.rowHeight = 200
+        
+        //设置下拉刷新
+        refreshControl = UIRefreshControl()
+        //添加监听
+        refreshControl?.addTarget(self, action: "loadData", for: .valueChanged)
         
         //设置分割线
         self.tableView.separatorStyle = .none
