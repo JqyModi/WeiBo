@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04210CBD1FDB8E5C007CB91A /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */; };
+		0427D4CF1FE2147600AC9A6E /* RetweetStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427D4CE1FE2147600AC9A6E /* RetweetStatusView.swift */; };
 		04305DC21FD9315E006D5A13 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04305DC11FD9315E006D5A13 /* Common.swift */; };
 		044CC7651FDE552200C68446 /* WelComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7641FDE552200C68446 /* WelComeViewController.swift */; };
 		044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
+		0427D4CE1FE2147600AC9A6E /* RetweetStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetweetStatusView.swift; sourceTree = "<group>"; };
 		04305DC11FD9315E006D5A13 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		044CC7641FDE552200C68446 /* WelComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelComeViewController.swift; sourceTree = "<group>"; };
 		044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				04DB570F1FDFC9B500CD89EB /* StatusTableViewCell.swift */,
 				047116DE1FE0CF860000956E /* StatusCellBottomView.swift */,
 				047116E21FE0F54B0000956E /* StatusPictureView.swift */,
+				0427D4CE1FE2147600AC9A6E /* RetweetStatusView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				047116E11FE0DC370000956E /* UIColor+Extension.swift in Sources */,
 				04C3857A1FDA18AE0090D6D5 /* OAuthViewController.swift in Sources */,
 				04A0B6801FD7CD3D00013BE5 /* MainViewController.swift in Sources */,
+				0427D4CF1FE2147600AC9A6E /* RetweetStatusView.swift in Sources */,
 				044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */,
 				044CC7651FDE552200C68446 /* WelComeViewController.swift in Sources */,
 				04DB570B1FDFB77D00CD89EB /* User.swift in Sources */,

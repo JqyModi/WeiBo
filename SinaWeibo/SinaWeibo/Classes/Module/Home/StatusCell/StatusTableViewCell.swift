@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 //定义在外部其它类也可以访问
 let StatusCellMargin: CGFloat = 12
@@ -14,16 +15,50 @@ let StatusCellIconWidth: CGFloat = 35
 
 class StatusTableViewCell: UITableViewCell {
     
+    //记录底部约束
+    var bottomConstraint: Constraint?
+    
     //设置模型数据
     var status: Status? {
         didSet {
             //属性传递
             originalView.status = status
+            //设置RetweetStatusView数据源
+//            if let rs = status?.retweeted_status {
+//                retweetStatusView.retweetStatus = status?.retweeted_status
+//            }
+            
+            //更新约束前先去掉原来的约束
+            self.bottomConstraint?.deactivate()
+            
+            //判断有无配图再动态显示底部视图：多个判断条件用逗号隔开
+            if let rs = status?.retweeted_status {
+                //是转发微博
+                retweetStatusView.retweetStatus = rs
+                //显示转发视图
+                retweetStatusView.isHidden = false
+                //更新约束
+                bottomView.snp.makeConstraints({ (make) in
+                    self.bottomConstraint = make.top.equalTo(retweetStatusView.snp.bottom).offset(StatusCellMargin).constraint
+                })
+            }else {
+                //隐藏
+                retweetStatusView.isHidden = true
+                //更新约束
+                bottomView.snp.makeConstraints({ (make) in
+                    // ?
+                    self.bottomConstraint = make.top.equalTo(originalView.snp.bottom).offset(StatusCellMargin).constraint
+                })
+            }
         }
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        //设置选中状态
+        selectionStyle = .none
+        
         setupUI()
     }
     
@@ -38,6 +73,7 @@ class StatusTableViewCell: UITableViewCell {
         //
 //        contentView.addSubview(pictureView)
         
+        contentView.addSubview(retweetStatusView)
         
         //添加布局约束
         originalView.snp.makeConstraints { (make) in
@@ -55,9 +91,20 @@ class StatusTableViewCell: UITableViewCell {
 //            make.height.equalTo(100)
 //        }
         
+        retweetStatusView.snp.makeConstraints { (make) in
+            make.top.equalTo(originalView.snp.bottom).offset(StatusCellMargin)
+            make.left.equalTo(originalView.snp.left)
+            make.right.equalTo(originalView.snp.right)
+        }
+            
         bottomView.snp.makeConstraints { (make) in
 //            make.top.equalTo(originalView.snp.bottom).offset(StatusCellMargin)
-            make.top.equalTo(originalView.snp.bottom)
+//            make.top.equalTo(originalView.snp.bottom)
+            // -
+//            make.top.equalTo(retweetStatusView.snp.bottom).offset(StatusCellMargin)
+            //将约束转换成约束类型：记录底部约束
+            self.bottomConstraint = make.top.equalTo(retweetStatusView.snp.bottom).constraint
+            
 //            make.top.equalTo(pictureView.snp.bottom).offset(StatusCellMargin)
             make.left.equalTo(snp.left)
             make.right.equalTo(snp.right)
@@ -75,6 +122,8 @@ class StatusTableViewCell: UITableViewCell {
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
         }
+        
+        
     }
     
     //延时加载自定义的控件
@@ -83,4 +132,6 @@ class StatusTableViewCell: UITableViewCell {
     private lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
     //添加Picture布局
 //    private lazy var pictureView: StatusPictureView = StatusPictureView()
+    
+    private lazy var retweetStatusView: RetweetStatusView = RetweetStatusView()
 }

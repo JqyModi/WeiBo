@@ -12,7 +12,8 @@ class StatusCellBottomView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        //设备背景色
+        backgroundColor = UIColor(white: 0.98, alpha: 1.0)
         setupUI()
     }
     

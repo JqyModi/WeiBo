@@ -92,8 +92,8 @@ class StatusPictureView: UICollectionView {
     }
     
     private func setupUI() {
-        backgroundColor = UIColor.randomColor()
-//        backgroundColor = homeBGColor
+//        backgroundColor = UIColor.randomColor()
+        backgroundColor = homeBGColor
     }
     
     //

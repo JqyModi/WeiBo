@@ -34,6 +34,8 @@ class Status: NSObject {
         return tempArray
     }
     
+    @objc var retweeted_status: Status?
+    
     init(dict: [String : Any]) {
         super.init()
         //
@@ -48,6 +50,14 @@ class Status: NSObject {
             //结束
             return
         }
+        if key == "retweeted_status" {
+            if let dic = value as? [String : Any] {
+                retweeted_status = Status(dict: dic)
+            }
+            //结束
+            return
+        }
+        
         super.setValue(value, forKey: key)
     }
     

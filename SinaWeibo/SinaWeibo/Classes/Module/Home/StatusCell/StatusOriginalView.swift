@@ -69,6 +69,8 @@ class StatusOriginalView: UIView {
     private func setupUI() {
         backgroundColor = homeBGColor
         
+        addSubview(sepView)
+        
         //加载子控件
         addSubview(iconImage)
         addSubview(nameLabel)
@@ -83,9 +85,17 @@ class StatusOriginalView: UIView {
         //添加配图布局
         addSubview(pictureView)
         
+        sepView.snp.makeConstraints { (make) in
+            make.top.equalTo(snp.top).offset(StatusCellMargin)
+//            make.left.equalTo(snp.left)
+            //连续设置多个方向约束
+            make.left.right.top.equalTo(self)
+            make.height.equalTo(StatusCellMargin)
+        }
+        
         //设置布局约束
         iconImage.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(StatusCellMargin)
+            make.top.equalTo(sepView.snp.bottom).offset(StatusCellMargin)
             make.left.equalTo(self.snp.left).offset(StatusCellMargin)
             make.width.equalTo(StatusCellIconWidth)
             make.height.equalTo(StatusCellIconWidth)
@@ -155,4 +165,12 @@ class StatusOriginalView: UIView {
     
     //添加Picture布局
     private lazy var pictureView: StatusPictureView = StatusPictureView()
+    
+    //添加分割线
+    private lazy var sepView: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        return v
+    }()
+    
 }

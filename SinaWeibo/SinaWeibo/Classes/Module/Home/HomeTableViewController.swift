@@ -52,6 +52,9 @@ class HomeTableViewController: BaseTableViewController {
         //设置行高
         self.tableView.rowHeight = 200
         
+        //设置分割线
+        self.tableView.separatorStyle = .none
+        
         //自动计算行高：Cell自动布局1
         //1.设置估计值
         self.tableView.estimatedRowHeight = tableView.rowHeight
@@ -102,7 +105,10 @@ extension HomeTableViewController {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? StatusTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? StatusTableViewCell
         //展示数据
-        cell?.status = statuses[indexPath.row]
+        let data = statuses[indexPath.row]
+        cell?.status = data
+        
+        debugPrint("retweetstatus = \(data.retweeted_status)")
         return cell!
     }
 }
