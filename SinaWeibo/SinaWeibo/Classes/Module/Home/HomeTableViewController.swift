@@ -33,7 +33,12 @@ class HomeTableViewController: BaseTableViewController {
         prepareTableView()
         
         //加载微博首页数据
-        loadData(finished: { (statuses) in
+        loadData()
+        
+    }
+    
+    private func loadData() {
+        StatusListViewModel().loadData(finished: { (statuses) in
             if statuses?.count == nil {
                 SVProgressHUD.showInfo(withStatus: AppErrorTip)
             }
@@ -43,7 +48,6 @@ class HomeTableViewController: BaseTableViewController {
             self.tableView.reloadData()
             debugPrint("数据：\(self.statuses.count) 条")
         })
-        
     }
     
     private func prepareTableView() {
@@ -62,38 +66,6 @@ class HomeTableViewController: BaseTableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
-    private func loadData(finished: @escaping (_ array: [Status]?) -> ()) {
-        let AFN = AFHTTPSessionManager()
-        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        guard let token = UserAccountViewModel().token else {
-            SVProgressHUD.showInfo(withStatus: "您尚未登录 ~")
-            return
-        }
-        let params = ["access_token" : token]
-        AFN.get(url, parameters: params, progress: nil, success: { (_, data) in
-            //判断是否有数据
-            guard let dict = data as? [String : Any] else {
-                SVProgressHUD.showInfo(withStatus: "访问失败")
-                finished(nil)
-                return
-            }
-            //[[String : Any]]字典类型数组
-            if let statuses = dict["statuses"] as? [[String : Any]] {
-                var array = [Status]()
-                //遍历数组
-                for item in statuses {
-                    if let dic = item as? [String : Any] {
-                        let status = Status(dict: dic)
-                        array.append(status)
-                    }
-                }
-                finished(array)
-            }
-        }) { (_, error) in
-            debugPrint("error = \(error)")
-        }
-    }
-    
 }
 
 //继承时已经实现了该协议：UITableViewDataSource,UITableViewDelegate

@@ -9,6 +9,11 @@
 import UIKit
 
 class StatusCellBottomView: UIView {
+    
+    @objc private func retweetedBtnDidClick() {
+        let tmp = TempViewController()
+        retweetedBtn.getNavController()?.pushViewController(tmp, animated: true)
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,6 +76,9 @@ class StatusCellBottomView: UIView {
             make.height.equalTo(snp.height)
             make.width.equalTo(retweetedBtn.snp.width)
         }
+        
+        //添加点击事件
+        retweetedBtn.addTarget(self, action: "retweetedBtnDidClick", for: .touchUpInside)
         
     }
     

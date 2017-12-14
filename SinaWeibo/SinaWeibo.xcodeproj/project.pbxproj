@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		04210CBD1FDB8E5C007CB91A /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */; };
 		0427D4CF1FE2147600AC9A6E /* RetweetStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427D4CE1FE2147600AC9A6E /* RetweetStatusView.swift */; };
+		0427D4D11FE24B7300AC9A6E /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427D4D01FE24B7300AC9A6E /* BaseNavViewController.swift */; };
 		04305DC21FD9315E006D5A13 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04305DC11FD9315E006D5A13 /* Common.swift */; };
 		044CC7651FDE552200C68446 /* WelComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7641FDE552200C68446 /* WelComeViewController.swift */; };
 		044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */; };
 		044CEAF01FDF5D450006694A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */; };
 		044CEAF21FDF61A40006694A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAF11FDF61A40006694A /* UILabel+Extension.swift */; };
+		0454F6C81FE250C9000907A3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F6C71FE250C9000907A3 /* UIView+Extension.swift */; };
+		0454F6CA1FE25331000907A3 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F6C91FE25331000907A3 /* TempViewController.swift */; };
+		046365DA1FE25F4D002A3C08 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046365D91FE25F4D002A3C08 /* NetWorkTools.swift */; };
+		046365DC1FE2614F002A3C08 /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046365DB1FE2614F002A3C08 /* StatusListViewModel.swift */; };
 		047116DF1FE0CF860000956E /* StatusCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047116DE1FE0CF860000956E /* StatusCellBottomView.swift */; };
 		047116E11FE0DC370000956E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047116E01FE0DC370000956E /* UIColor+Extension.swift */; };
 		047116E31FE0F54B0000956E /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047116E21FE0F54B0000956E /* StatusPictureView.swift */; };
@@ -39,11 +44,16 @@
 /* Begin PBXFileReference section */
 		04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		0427D4CE1FE2147600AC9A6E /* RetweetStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetweetStatusView.swift; sourceTree = "<group>"; };
+		0427D4D01FE24B7300AC9A6E /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
 		04305DC11FD9315E006D5A13 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		044CC7641FDE552200C68446 /* WelComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelComeViewController.swift; sourceTree = "<group>"; };
 		044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		044CEAF11FDF61A40006694A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		0454F6C71FE250C9000907A3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		0454F6C91FE25331000907A3 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
+		046365D91FE25F4D002A3C08 /* NetWorkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
+		046365DB1FE2614F002A3C08 /* StatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
 		047116DE1FE0CF860000956E /* StatusCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellBottomView.swift; sourceTree = "<group>"; };
 		047116E01FE0DC370000956E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		047116E21FE0F54B0000956E /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
@@ -97,6 +107,7 @@
 				044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */,
 				044CEAF11FDF61A40006694A /* UILabel+Extension.swift */,
 				047116E01FE0DC370000956E /* UIColor+Extension.swift */,
+				0454F6C71FE250C9000907A3 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 			children = (
 				04DB570C1FDFC46600CD89EB /* StatusCell */,
 				04A0B6891FD7CE8E00013BE5 /* HomeTableViewController.swift */,
+				0454F6C91FE25331000907A3 /* TempViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -213,6 +225,7 @@
 			children = (
 				044CEAEE1FDF5D070006694A /* Extension */,
 				04305DC11FD9315E006D5A13 /* Common.swift */,
+				046365D91FE25F4D002A3C08 /* NetWorkTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -220,6 +233,7 @@
 		04A0B67E1FD7CC6500013BE5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				046365DB1FE2614F002A3C08 /* StatusListViewModel.swift */,
 				04210CBC1FDB8E5C007CB91A /* UserAccountViewModel.swift */,
 			);
 			path = ViewModel;
@@ -230,6 +244,7 @@
 			children = (
 				04BD49FC1FD8DF54004B1A1F /* VisitorLoginView */,
 				04BD49FA1FD8D8A4004B1A1F /* BaseTableViewController.swift */,
+				0427D4D01FE24B7300AC9A6E /* BaseNavViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -405,15 +420,19 @@
 				04A0B6901FD7CEFC00013BE5 /* ProfileTableViewController.swift in Sources */,
 				04DB57101FDFC9B500CD89EB /* StatusTableViewCell.swift in Sources */,
 				04DB570E1FDFC4C400CD89EB /* StatusOriginalView.swift in Sources */,
+				0427D4D11FE24B7300AC9A6E /* BaseNavViewController.swift in Sources */,
 				047116E31FE0F54B0000956E /* StatusPictureView.swift in Sources */,
 				04A0B68A1FD7CE8E00013BE5 /* HomeTableViewController.swift in Sources */,
+				046365DC1FE2614F002A3C08 /* StatusListViewModel.swift in Sources */,
 				04BD49FB1FD8D8A4004B1A1F /* BaseTableViewController.swift in Sources */,
 				047116DF1FE0CF860000956E /* StatusCellBottomView.swift in Sources */,
 				04AB46D81FDF847800EF3032 /* Status.swift in Sources */,
 				04BD49F81FD8BF37004B1A1F /* MainTabBar.swift in Sources */,
+				0454F6C81FE250C9000907A3 /* UIView+Extension.swift in Sources */,
 				044CEAF01FDF5D450006694A /* UIButton+Extension.swift in Sources */,
 				04A0B6641FD7CAF900013BE5 /* AppDelegate.swift in Sources */,
 				04A0B68E1FD7CEF100013BE5 /* MessageTableViewController.swift in Sources */,
+				0454F6CA1FE25331000907A3 /* TempViewController.swift in Sources */,
 				04A0B68C1FD7CEB700013BE5 /* DiscoverTableViewController.swift in Sources */,
 				04BD49FE1FD8DF82004B1A1F /* VisitorLoginView.swift in Sources */,
 				04C3857C1FDA826E0090D6D5 /* UserAccount.swift in Sources */,
@@ -421,6 +440,7 @@
 				047116E11FE0DC370000956E /* UIColor+Extension.swift in Sources */,
 				04C3857A1FDA18AE0090D6D5 /* OAuthViewController.swift in Sources */,
 				04A0B6801FD7CD3D00013BE5 /* MainViewController.swift in Sources */,
+				046365DA1FE25F4D002A3C08 /* NetWorkTools.swift in Sources */,
 				0427D4CF1FE2147600AC9A6E /* RetweetStatusView.swift in Sources */,
 				044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */,
 				044CC7651FDE552200C68446 /* WelComeViewController.swift in Sources */,

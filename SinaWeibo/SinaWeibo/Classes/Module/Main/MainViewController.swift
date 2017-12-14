@@ -52,7 +52,9 @@ class MainViewController: UITabBarController {
     //方法重载
     private func addChildViewController(vc: UIViewController, title: String, imageName: String) {
         //添加导航控制器
-        let nav = UINavigationController(rootViewController: vc)
+//        let nav = UINavigationController(rootViewController: vc)
+        //用自定义的导航控制器替换系统的
+        let nav = BaseNavViewController(rootViewController: vc)
         vc.title = title
         vc.tabBarItem.image = UIImage(named: imageName)
         

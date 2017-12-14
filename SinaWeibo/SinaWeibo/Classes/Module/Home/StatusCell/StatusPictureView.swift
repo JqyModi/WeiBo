@@ -142,9 +142,15 @@ class PictureViewCell: UICollectionViewCell {
         }
     }
     
-    
-    //
-    private lazy var imageView: UIImageView = UIImageView()
+//    private lazy var imageView: UIImageView = UIImageView()
+    private lazy var imageView: UIImageView = {
+        let iv = UIImageView()
+        //设置显示样式：防止图片变模糊
+        iv.contentMode = .scaleAspectFit
+        //是否裁剪：手写代码手动添加：防止图片模糊
+        iv.clipsToBounds = true
+        return iv
+    }()
 }
 
 
