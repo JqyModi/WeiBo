@@ -49,6 +49,11 @@ class StatusPictureView: UICollectionView {
         //单图
         if imageCount == 1 {
             let imageViewSize = CGSize(width: 180, height: 120)
+            
+            //获取单张被缓存的图片
+            let key = imageURLs?.last?.absoluteString
+//            let image = SDImageCache.
+            
             //当没有图片时返回CGSize.zero
             layout?.itemSize = imageViewSize
             return imageViewSize
