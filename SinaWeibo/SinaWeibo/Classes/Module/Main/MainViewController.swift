@@ -13,6 +13,12 @@ class MainViewController: UITabBarController {
     //Swift点击事件走OC机制：要兼容OC机制需要添加@objc
     @objc private func composeDidClick() {
         debugPrint(#function)
+        
+        let composeVC = ComposeViewController()
+        
+        let nav = UINavigationController(rootViewController: composeVC)
+        present(nav, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {

@@ -26,7 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //新增引导页:重写了构造方法不需要传递参数
 //        window?.rootViewController = NewFeatureCollectionViewController()
         //
-        window?.rootViewController = defaultRootViewController()
+//        window?.rootViewController = defaultRootViewController()
+        
+        //为了方便调试先将跟视图改为ComposeViewController
+        let nav = UINavigationController(rootViewController: ComposeViewController())
+        window?.rootViewController = nav
         
         //注册通知
         registerNotification()

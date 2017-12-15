@@ -55,8 +55,7 @@ class UserAccountViewModel {
     }
     //3.获取用户信息: 酷客_VB
     func loadUserInfo(account: UserAccount, finished: @escaping (_ error: Error?) -> ()) {
-        //        let url = Constants.userInfoUrl
-        let url = "https://api.weibo.com/2/users/show.json"
+        let url = Constants.userInfoUrl
         let params = ["access_token" : account.access_token, "uid" : account.uid]
         
         //调试技巧：查看数据类型

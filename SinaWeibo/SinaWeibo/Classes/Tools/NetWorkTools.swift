@@ -9,6 +9,7 @@
 import AFNetworking
 
 private let domain = "com.modi.app.ErrorDomain"
+private let hostname = "https://api.weibo.com/"
 
 //定义网络请求方式
 enum HTTPMethod: String {
@@ -19,8 +20,7 @@ enum HTTPMethod: String {
 class NetWorkTools: AFHTTPSessionManager {
     //定义共享单例
     static let sharedTools: NetWorkTools = {
-        let urlStr = "https://api.weibo.com/"
-        let url = NSURL(string: urlStr)
+        let url = NSURL(string: hostname)
         let tool = NetWorkTools(baseURL: url as! URL)
         //设置解析数据类型：新版不设置也可以
         tool.responseSerializer.acceptableContentTypes?.insert("taxt/pain")

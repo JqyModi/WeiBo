@@ -38,16 +38,48 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     @objc private func loadData() {
-        StatusListViewModel().loadData(finished: { (statuses) in
-            if statuses?.count == nil {
-                SVProgressHUD.showInfo(withStatus: AppErrorTip)
-            }
-            
+        
+        var since_id = 0
+        var max_id = 0
+        
+        if indicatorView.isAnimating {
+            //上拉加载
+            since_id = 0
+            //获取最后一条数据max_id来判断是否需要加载更多数据
+            max_id = statuses.last?.id ?? 0
+        }else {
+            //下拉刷新
+            max_id = 0
+            //取第一条数据的since_id来判断是否有新数据：下拉刷新
+            since_id = statuses.first?.id ?? 0
+        }
+        
+        //since_id max_id同时有值不返会数据
+        StatusListViewModel().loadData(since_id: since_id, max_id: max_id, finished: { (statuses) in
             //请求成功停止下拉刷新
             self.refreshControl?.endRefreshing()
             
+            if statuses == nil {
+                SVProgressHUD.showInfo(withStatus: AppErrorTip)
+                //加载数据失败 停止转动
+                self.indicatorView.stopAnimating()
+            }
+            
             //获取到数据：初始化数据模型
-            self.statuses = statuses!
+            if since_id > 0 {
+                //刷新数据叠加
+                self.statuses = self.statuses + statuses!
+            }
+            else if max_id > 0 {
+                //刷新数据叠加
+                self.statuses = self.statuses + statuses!
+                //加载数据完成 停止转动
+                self.indicatorView.stopAnimating()
+            }
+            else {
+                //首次加载
+                self.statuses = statuses!
+            }
             //刷新表格
             self.tableView.reloadData()
             debugPrint("数据：\(self.statuses.count) 条")
@@ -65,6 +97,9 @@ class HomeTableViewController: BaseTableViewController {
         //添加监听
         refreshControl?.addTarget(self, action: "loadData", for: .valueChanged)
         
+        //添加上拉加载布局
+        self.tableView.tableFooterView = indicatorView
+        
         //设置分割线
         self.tableView.separatorStyle = .none
         
@@ -74,6 +109,14 @@ class HomeTableViewController: BaseTableViewController {
         //2.设置自动计算
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
+    
+    private lazy var indicatorView: UIActivityIndicatorView = {
+       let aiv = UIActivityIndicatorView()
+        aiv.color = UIColor.randomColor()
+//        aiv.hidesWhenStopped = true
+        aiv.activityIndicatorViewStyle = .gray
+        return aiv
+    }()
 
 }
 
@@ -88,6 +131,14 @@ extension HomeTableViewController {
         //展示数据
         let data = statuses[indexPath.row]
         cell?.status = data
+        
+        //设置上拉加载数据操作：当Cell是上拉加载布局Cell时且菊花没有滚动状态下开始上拉加载数据
+        if indexPath.row == statuses.count - 1 && !indicatorView.isAnimating {
+            //开始上拉加载
+            indicatorView.startAnimating()
+            loadData()
+            debugPrint("开始加载更多数据")
+        }
         
         debugPrint("retweetstatus = \(data.retweeted_status)")
         return cell!

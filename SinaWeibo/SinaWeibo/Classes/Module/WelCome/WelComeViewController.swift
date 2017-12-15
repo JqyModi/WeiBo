@@ -81,6 +81,11 @@ class WelComeViewController: UIViewController {
         
         //设置iconView图片
         iconView.setImageWith(UserAccountViewModel().headURL as! URL, placeholderImage: UIImage(named: "avatar_default_big"))
+        
+        //设置图片圆角
+//        iconView.clipsToBounds = true
+        iconView.layer.cornerRadius = 45
+        iconView.layer.masksToBounds = true
     }
     
     //懒加载控件

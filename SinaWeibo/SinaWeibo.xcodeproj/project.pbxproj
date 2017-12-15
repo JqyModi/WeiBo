@@ -15,6 +15,7 @@
 		044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */; };
 		044CEAF01FDF5D450006694A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */; };
 		044CEAF21FDF61A40006694A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAF11FDF61A40006694A /* UILabel+Extension.swift */; };
+		044D41431FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D41421FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift */; };
 		0454F6C81FE250C9000907A3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F6C71FE250C9000907A3 /* UIView+Extension.swift */; };
 		0454F6CA1FE25331000907A3 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F6C91FE25331000907A3 /* TempViewController.swift */; };
 		046365DA1FE25F4D002A3C08 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046365D91FE25F4D002A3C08 /* NetWorkTools.swift */; };
@@ -35,6 +36,7 @@
 		04BD49FE1FD8DF82004B1A1F /* VisitorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD49FD1FD8DF82004B1A1F /* VisitorLoginView.swift */; };
 		04C3857A1FDA18AE0090D6D5 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C385791FDA18AE0090D6D5 /* OAuthViewController.swift */; };
 		04C3857C1FDA826E0090D6D5 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3857B1FDA826E0090D6D5 /* UserAccount.swift */; };
+		04CA18A41FE3793F00ADF1AE /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA18A31FE3793F00ADF1AE /* ComposeViewController.swift */; };
 		04DB570B1FDFB77D00CD89EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB570A1FDFB77D00CD89EB /* User.swift */; };
 		04DB570E1FDFC4C400CD89EB /* StatusOriginalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB570D1FDFC4C400CD89EB /* StatusOriginalView.swift */; };
 		04DB57101FDFC9B500CD89EB /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB570F1FDFC9B500CD89EB /* StatusTableViewCell.swift */; };
@@ -50,6 +52,7 @@
 		044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		044CEAF11FDF61A40006694A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		044D41421FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		0454F6C71FE250C9000907A3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0454F6C91FE25331000907A3 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		046365D91FE25F4D002A3C08 /* NetWorkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		04BD49FD1FD8DF82004B1A1F /* VisitorLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorLoginView.swift; sourceTree = "<group>"; };
 		04C385791FDA18AE0090D6D5 /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		04C3857B1FDA826E0090D6D5 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		04CA18A31FE3793F00ADF1AE /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		04DB570A1FDFB77D00CD89EB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04DB570D1FDFC4C400CD89EB /* StatusOriginalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusOriginalView.swift; sourceTree = "<group>"; };
 		04DB570F1FDFC9B500CD89EB /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				044CEAF11FDF61A40006694A /* UILabel+Extension.swift */,
 				047116E01FE0DC370000956E /* UIColor+Extension.swift */,
 				0454F6C71FE250C9000907A3 /* UIView+Extension.swift */,
+				044D41421FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 		04A0B6771FD7CC6500013BE5 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				04CA18A21FE3791400ADF1AE /* Compose */,
 				044CC7631FDE54F300C68446 /* WelCome */,
 				04C385781FDA186E0090D6D5 /* OAuth */,
 				04BD49F91FD8D846004B1A1F /* Base */,
@@ -263,6 +269,14 @@
 				04C385791FDA18AE0090D6D5 /* OAuthViewController.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		04CA18A21FE3791400ADF1AE /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				04CA18A31FE3793F00ADF1AE /* ComposeViewController.swift */,
+			);
+			path = Compose;
 			sourceTree = "<group>";
 		};
 		04DB570C1FDFC46600CD89EB /* StatusCell */ = {
@@ -415,10 +429,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044D41431FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift in Sources */,
 				044CEAF21FDF61A40006694A /* UILabel+Extension.swift in Sources */,
 				04210CBD1FDB8E5C007CB91A /* UserAccountViewModel.swift in Sources */,
 				04A0B6901FD7CEFC00013BE5 /* ProfileTableViewController.swift in Sources */,
 				04DB57101FDFC9B500CD89EB /* StatusTableViewCell.swift in Sources */,
+				04CA18A41FE3793F00ADF1AE /* ComposeViewController.swift in Sources */,
 				04DB570E1FDFC4C400CD89EB /* StatusOriginalView.swift in Sources */,
 				0427D4D11FE24B7300AC9A6E /* BaseNavViewController.swift in Sources */,
 				047116E31FE0F54B0000956E /* StatusPictureView.swift in Sources */,

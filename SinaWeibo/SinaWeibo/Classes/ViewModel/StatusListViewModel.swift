@@ -14,14 +14,22 @@ import SDWebImage
 class StatusListViewModel: NSObject {
     
     //加载主页微博数据
-    func loadData(finished: @escaping (_ array: [Status]?) -> ()) {
+    func loadData(since_id since_id: Int,max_id max_id: Int, finished: @escaping (_ array: [Status]?) -> ()) {
         
-        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let url = "2/statuses/home_timeline.json"
         guard let token = UserAccountViewModel().token else {
             SVProgressHUD.showInfo(withStatus: "您尚未登录 ~")
             return
         }
-        let params = ["access_token" : token]
+        var params = ["access_token" : token]
+        
+        if since_id > 0 {
+            params["since_id"] = "\(since_id)"
+        }
+        
+        if max_id > 0 {
+            params["max_id"] = "\(max_id)"
+        }
         
         NetWorkTools.sharedTools.requestJsonDict(method: .GET, urlString: url, params: params) { (result, error) in
             //判断是否有数据
@@ -49,6 +57,8 @@ class StatusListViewModel: NSObject {
     //缓存单张图片
     private func cacheStatusImage(array: [Status], finished: @escaping (_ array: [Status]?) -> ()) {
         if array.count == 0 {
+            //加上了since_id后可能刷新没有新数据
+            finished(array)
             return
         }
         
@@ -65,7 +75,9 @@ class StatusListViewModel: NSObject {
                 for url in imageUrls {
                     //开始下载图片：向任务组中添加任务
                     group.enter()
-                    SDWebImageManager.shared().imageDownloader?.downloadImage(with: url as URL, options: [], progress: nil, completed: { (image, data, error, _) in
+                    
+                    let manager = SDWebImageManager.shared()
+                    manager.imageDownloader?.downloadImage(with: url as URL, options: [], progress: nil, completed: { (image, data, error, _) in
                         debugPrint("单张图片异步下载完成")
                         //异步任务离开任务组
                         group.leave()

@@ -36,6 +36,16 @@ class Status: NSObject {
     
     @objc var retweeted_status: Status?
     
+    //计算型属性代表原创微博或者转发微博的配图数组
+    var pictureURLs: [NSURL]? {
+        //转发微博
+        if retweeted_status != nil {
+            return retweeted_status?.imageURLs
+        }
+        //原创微博
+        return imageURLs
+    }
+    
     init(dict: [String : Any]) {
         super.init()
         //
