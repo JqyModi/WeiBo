@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 private let reuseIdentifier = "Cell"
 private let pictureCellMargin: CGFloat = 5
@@ -48,15 +49,15 @@ class StatusPictureView: UICollectionView {
         
         //单图
         if imageCount == 1 {
-            let imageViewSize = CGSize(width: 180, height: 120)
+//            let imageViewSize = CGSize(width: 180, height: 120)
             
             //获取单张被缓存的图片
             let key = imageURLs?.last?.absoluteString
-//            let image = SDImageCache.
-            
+            let image = SDImageCache.shared().imageFromDiskCache(forKey: key!)
+            let imageViewSize = image?.size
             //当没有图片时返回CGSize.zero
-            layout?.itemSize = imageViewSize
-            return imageViewSize
+            layout?.itemSize = imageViewSize!
+            return imageViewSize!
         }
         //4图
         if imageCount == 4 {
