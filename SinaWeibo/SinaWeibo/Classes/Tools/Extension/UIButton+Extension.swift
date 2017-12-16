@@ -11,11 +11,13 @@ import UIKit
 //扩展UIButton便利构造器
 extension UIButton {
     
-    convenience init(title: String, backImage: String, color: UIColor, image: String = "", size: CGFloat = 14) {
+    convenience init(title: String?, backImage: String, color: UIColor, image: String = "", size: CGFloat = 14) {
         //调用父类构造方法实例化该对象
         self.init()
         //设置属性
-        setTitle(title, for: .normal)
+        if (title != nil) {
+            setTitle(title, for: .normal)
+        }
         if backImage != "" {
             setBackgroundImage(UIImage(named: backImage), for: .normal)
             setBackgroundImage(UIImage(named: backImage + "_highlighted"), for: .selected)

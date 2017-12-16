@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
 
@@ -15,9 +16,41 @@ class ComposeViewController: UIViewController {
         debugPrint("close ~~ ")
         dismiss(animated: true, completion: nil)
     }
-    
+//    statuses/upload
+//    发表带图片的微博。必须用POST方式提交pic参数，且Content-Type必须设置为multipart/form-data。图片大小<5M
     @objc private func send() {
         debugPrint("send ~~ ")
+        
+        //判断用户是否登录
+        guard let token = UserAccountViewModel().token else {
+            SVProgressHUD.show(withStatus: "客官~ 请先登录再发微博哦")
+            return
+        }
+        
+        let url = "2/statuses/update.json"
+//        let url = "https://api.weibo.com/2/statuses/update.json"
+        let params = ["access_token": token, "status" : textView.text!]
+//        NetWorkTools.sharedTools.requestSerializer.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        NetWorkTools.sharedTools.requestJsonDict(method: .POST, urlString: url, params: params) { (result, error) in
+//            if error == nil {
+//                SVProgressHUD.show(withStatus: "发布成功 ~ ")
+//                self.dismiss(animated: true, completion: nil)
+//                debugPrint("result = \(result)")
+//            }else {
+//                SVProgressHUD.showError(withStatus: "微博发布失败 ~ ")
+//                debugPrint("发布失败 ~ ")
+//            }
+//
+            if error != nil {
+                SVProgressHUD.showError(withStatus: AppErrorTip)
+                return
+            }
+            SVProgressHUD.showSuccess(withStatus: "发布Weibo成功")
+            self.dismiss(animated: true, completion: nil)
+            print(result)
+
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -40,7 +73,7 @@ class ComposeViewController: UIViewController {
     
     private func registerNotification() {
         let center = NotificationCenter.default
-        center.addObserver(self, selector: "keyboardWillChange:", name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        center.addObserver(self, selector: #selector(self.keyboardWillChange(notify:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     deinit {
@@ -55,14 +88,18 @@ class ComposeViewController: UIViewController {
         //获取键盘frame : NSValue?
         let frame = (notify.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
-        //根据frame计算出键盘高度
-        let keyboardHeight = -screenH + frame.origin.y
+        //根据frame计算出键盘高度：？
+        debugPrint("y = \(frame.origin.y)")
+        let keyboardHeight = -(screenH - frame.origin.y)
         //动态修改toolbar位置： 高度
         toolBar.snp.updateConstraints { (make) in
             make.bottom.equalTo(keyboardHeight)
         }
         //更新约束后强制刷新界面
-        
+        UIView.animate(withDuration: duration) {
+            //以动画方式过渡刷新效果：不那么唐突
+            self.view.layoutIfNeeded()
+        }
     }
     
     //延时加载标题视图
@@ -98,6 +135,10 @@ class ComposeViewController: UIViewController {
     //微博文本输入框
     private lazy var textView: UITextView = {
        let tv = UITextView()
+        
+        //
+        tv.delegate = self
+        
         tv.backgroundColor = UIColor.randomColor()
         //如果需要设置成提示文字：实现监听事件
 //        tv.text = "分享新鲜事 ~~~ "
@@ -116,11 +157,23 @@ class ComposeViewController: UIViewController {
     private lazy var toolBar: UIToolbar = UIToolbar()
     
 }
+//监听文本状态改变
+extension ComposeViewController: UITextViewDelegate {
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        //隐藏占位文本
+        placeHolderLabel.isHidden = textView.hasText
+        //设置发布按钮交互：textView.hasText判断是否有文字
+        self.navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
+    }
+}
 
 extension ComposeViewController {
+    
     private func setNavBar() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .plain, target: self, action: "close")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .plain, target: self, action: "send")
+        //没有文本时不可点击
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.navigationItem.titleView = titleView
     }
     

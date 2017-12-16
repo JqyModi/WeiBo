@@ -14,8 +14,8 @@ private struct BConstants {
 class BaseTableViewController: UITableViewController {
 
     //设置是否登录开关
-//    var userLogin = true
-    var userLogin = UserAccountViewModel().userLogin
+    var userLogin = true
+//    var userLogin = UserAccountViewModel().userLogin
     
     var visitorView: VisitorLoginView?
     

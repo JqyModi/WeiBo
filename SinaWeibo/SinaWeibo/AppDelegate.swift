@@ -29,8 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = defaultRootViewController()
         
         //为了方便调试先将跟视图改为ComposeViewController
-        let nav = UINavigationController(rootViewController: ComposeViewController())
-        window?.rootViewController = nav
+//        let nav = UINavigationController(rootViewController: ComposeViewController())
+//        window?.rootViewController = nav
+        
+        //发微博视图选择器测试
+        window?.rootViewController = PictureSelectorCollectionViewController()
         
         //注册通知
         registerNotification()
