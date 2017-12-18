@@ -50,6 +50,15 @@
 		0427D4D01FE24B7300AC9A6E /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
 		04305DC11FD9315E006D5A13 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		0430B3911FE4CA480088D4F1 /* PictureSelectorCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSelectorCollectionViewController.swift; sourceTree = "<group>"; };
+		043935A61FE7B84C00BB4A5C /* Emoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
+		043935A71FE7B84C00BB4A5C /* EmoticonAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonAttachment.swift; sourceTree = "<group>"; };
+		043935A81FE7B84C00BB4A5C /* EmoticonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonCell.swift; sourceTree = "<group>"; };
+		043935A91FE7B84C00BB4A5C /* EmoticonKeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonKeyBoardView.swift; sourceTree = "<group>"; };
+		043935AA1FE7B84C00BB4A5C /* EmoticonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
+		043935AB1FE7B84C00BB4A5C /* EmoticonPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
+		043935AC1FE7B84C00BB4A5C /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		043935AD1FE7B84C00BB4A5C /* EmoticonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonTextView.swift; sourceTree = "<group>"; };
+		043935AE1FE7B84C00BB4A5C /* String+Emoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Emoticon.swift"; sourceTree = "<group>"; };
 		044CC7641FDE552200C68446 /* WelComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelComeViewController.swift; sourceTree = "<group>"; };
 		044CC7681FDE6D3600C68446 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -98,6 +107,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043935A51FE7B84C00BB4A5C /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				043935A61FE7B84C00BB4A5C /* Emoticon.swift */,
+				043935A71FE7B84C00BB4A5C /* EmoticonAttachment.swift */,
+				043935A81FE7B84C00BB4A5C /* EmoticonCell.swift */,
+				043935A91FE7B84C00BB4A5C /* EmoticonKeyBoardView.swift */,
+				043935AA1FE7B84C00BB4A5C /* EmoticonManager.swift */,
+				043935AB1FE7B84C00BB4A5C /* EmoticonPackage.swift */,
+				043935AC1FE7B84C00BB4A5C /* Emoticons.bundle */,
+				043935AD1FE7B84C00BB4A5C /* EmoticonTextView.swift */,
+				043935AE1FE7B84C00BB4A5C /* String+Emoticon.swift */,
+			);
+			path = Emoticon;
+			sourceTree = "<group>";
+		};
 		044CC7631FDE54F300C68446 /* WelCome */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +256,7 @@
 		04A0B67D1FD7CC6500013BE5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				043935A51FE7B84C00BB4A5C /* Emoticon */,
 				044CEAEE1FDF5D070006694A /* Extension */,
 				04305DC11FD9315E006D5A13 /* Common.swift */,
 				046365D91FE25F4D002A3C08 /* NetWorkTools.swift */,

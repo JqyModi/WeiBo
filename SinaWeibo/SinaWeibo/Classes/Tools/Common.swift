@@ -19,8 +19,10 @@ struct Constants {
     static let ClientIDKey = "client_id"
     static let RedirectUrlKey = "redirect_uri"
     static let client_id = "4090434754"
-    static let client_secret = "e05466cab537175d1ec28314154bd160"
+    static let client_secret = "666e08d518a86aa7b6b65fe7e4d5d01b"
     static let redirect_uri = "http://39.108.219.113/Music/index.html"
+    
+    static let token = "2.004izJEGGwCp9Eaa20962a7d15SEBC"
 }
 
 //MARK: HOME背景色

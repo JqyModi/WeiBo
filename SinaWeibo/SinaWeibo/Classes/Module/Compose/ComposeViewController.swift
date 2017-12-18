@@ -12,6 +12,12 @@ import SVProgressHUD
 
 class ComposeViewController: UIViewController {
 
+    @objc private func selectPicture() {
+        selectorVC.view.snp.updateConstraints { (make) in
+            make.height.equalTo(224 + 80 + 40)
+        }
+    }
+    
     @objc private func close() {
         debugPrint("close ~~ ")
         dismiss(animated: true, completion: nil)
@@ -27,28 +33,36 @@ class ComposeViewController: UIViewController {
             return
         }
         
-        let url = "2/statuses/update.json"
-//        let url = "https://api.weibo.com/2/statuses/update.json"
-        let params = ["access_token": token, "status" : textView.text!]
-//        NetWorkTools.sharedTools.requestSerializer.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        NetWorkTools.sharedTools.requestJsonDict(method: .POST, urlString: url, params: params) { (result, error) in
-//            if error == nil {
-//                SVProgressHUD.show(withStatus: "发布成功 ~ ")
-//                self.dismiss(animated: true, completion: nil)
-//                debugPrint("result = \(result)")
-//            }else {
-//                SVProgressHUD.showError(withStatus: "微博发布失败 ~ ")
-//                debugPrint("发布失败 ~ ")
-//            }
-//
-            if error != nil {
-                SVProgressHUD.showError(withStatus: AppErrorTip)
-                return
+        //要发布的微博文本内容，必须做URLencode，内容不超过140个汉字
+        let text = textView.text
+        let urlEncodeText = text?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let params = ["access_token": token, "status" : urlEncodeText]
+        
+        if selectorVC.imageList.count >= 1 {
+            let url = "https://upload.api.weibo.com/2/statuses/upload.json"
+            //获取PNG格式的图片二进制数据：PNG/JPEG
+            let imageData = UIImagePNGRepresentation(selectorVC.imageList[0])
+            NetWorkTools.sharedTools.uploadImage(urlStr: url, params: params, imageData: imageData!, finished: { (result, error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: AppErrorTip)
+                    return
+                }
+                SVProgressHUD.showSuccess(withStatus: "发布Weibo成功")
+                self.dismiss(animated: true, completion: nil)
+                debugPrint("result ---> \(result)")
+            })
+        }else {
+            //没有图片
+            let urlString = "2/statuses/update.json"
+            NetWorkTools.sharedTools.requestJsonDict(method: .POST, urlString: urlString, params: params) { (result, error) -> () in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: AppErrorTip)
+                    return
+                }
+                SVProgressHUD.showSuccess(withStatus: "发布Weibo成功")
+                self.dismiss(animated: true, completion: nil)
+                debugPrint(result)
             }
-            SVProgressHUD.showSuccess(withStatus: "发布Weibo成功")
-            self.dismiss(animated: true, completion: nil)
-            print(result)
-
         }
         
     }
@@ -57,6 +71,9 @@ class ComposeViewController: UIViewController {
         super.viewDidLoad()
         //
         setupUI()
+        
+        //添加选择图片控制器
+        addSelectorView()
         
         //监听键盘事件
         registerNotification()
@@ -156,6 +173,8 @@ class ComposeViewController: UIViewController {
     //工具条
     private lazy var toolBar: UIToolbar = UIToolbar()
     
+    //图片选择View
+    private lazy var selectorVC = PictureSelectorCollectionViewController()
 }
 //监听文本状态改变
 extension ComposeViewController: UITextViewDelegate {
@@ -206,14 +225,15 @@ extension ComposeViewController {
         }
         var items = [UIBarButtonItem]()
         //图标数据
-        let itemIcons = [["imageName": "compose_toolbar_picture"],
+        let itemIcons = [["imageName": "compose_toolbar_picture", "actionName": "selectPicture"],
                             ["imageName": "compose_mentionbutton_background"],
                             ["imageName": "compose_trendbutton_background"],
                             ["imageName": "compose_emoticonbutton_background"],
                             ["imageName": "compose_add_background"]]
         for dict in itemIcons {
             let imageName = dict["imageName"]!
-            let item = UIBarButtonItem(imageName: imageName)
+            let actionName = dict["actionName"]
+            let item = UIBarButtonItem(imageName: imageName, target: self, actionName: actionName)
             items.append(item)
             
             //设置间隔
@@ -226,5 +246,20 @@ extension ComposeViewController {
         
         toolBar.items = items
         
+    }
+    
+    private func addSelectorView() {
+        //添加子视图控制器
+        addChildViewController(selectorVC)
+        //添加子view
+        self.view.addSubview(selectorVC.view)
+        //调整toolbar的层次：将toolbar置于最上层： 可见
+        view.bringSubview(toFront: toolBar)
+        //添加约束
+        selectorVC.view.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(view)
+            //预设
+            make.height.equalTo(0)
+        }
     }
 }

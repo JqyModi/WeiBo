@@ -11,7 +11,7 @@ import UIKit
 //扩展UIButton便利构造器
 extension UIButton {
     
-    convenience init(title: String?, backImage: String, color: UIColor, image: String = "", size: CGFloat = 14) {
+    convenience init(title: String?, backImage: String, color: UIColor?, image: String = "", size: CGFloat = 14) {
         //调用父类构造方法实例化该对象
         self.init()
         //设置属性

@@ -20,7 +20,7 @@ private struct OConstants {
     static let ClientIDKey = "client_id"
     static let RedirectUrlKey = "redirect_uri"
     static let client_id = "4090434754"
-    static let client_secret = "e05466cab537175d1ec28314154bd160"
+    static let client_secret = "666e08d518a86aa7b6b65fe7e4d5d01b"
     static let redirect_uri = "http://39.108.219.113/Music/index.html"
 }
 class OAuthViewController: UIViewController {
@@ -30,7 +30,7 @@ class OAuthViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @objc private func fullAccount() {
-        let jsStr = "document.getElementById('userId').value = '15676832968',document.getElementsByClassName('input_note')[0].value = '', document.getElementById('passwd').value = 'siri.com'"
+        let jsStr = "document.getElementById('userId').value = 'jqy_wy@163.com',document.getElementsByClassName('input_note')[0].value = '', document.getElementById('passwd').value = 'siri.com'"
         //执行js代码
         webView.stringByEvaluatingJavaScript(from: jsStr)
     }

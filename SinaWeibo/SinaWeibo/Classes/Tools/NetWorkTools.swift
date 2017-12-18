@@ -23,7 +23,28 @@ class NetWorkTools: AFHTTPSessionManager {
         let url = NSURL(string: hostname)
         let tool = NetWorkTools(baseURL: url as! URL)
         //设置解析数据类型：新版不设置也可以
-        tool.responseSerializer.acceptableContentTypes?.insert("taxt/pain")
+//        application/x-www-form-urlencoded
+//        multipart/form-data; boundary=********
+//        text/plain
+//        text/xml
+
+        
+        //默认
+//        - `application/json`
+//        - `text/json`
+//        - `text/javascript`
+        //新增
+//        - `application/x-www-form-urlencoded`
+//        - `multipart/form-data; boundary=********`
+//        - `text/plain`
+//        - `text/xml`
+//        - `text/html`
+        
+        tool.responseSerializer.acceptableContentTypes?.insert("application/x-www-form-urlencoded")
+        tool.responseSerializer.acceptableContentTypes?.insert("multipart/form-data; boundary=********")
+        tool.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        tool.responseSerializer.acceptableContentTypes?.insert("text/xml")
+        tool.responseSerializer.acceptableContentTypes?.insert("text/html")
         return tool
     }()
     
@@ -58,6 +79,28 @@ class NetWorkTools: AFHTTPSessionManager {
                 finished(nil, error as NSError)
                 debugPrint("error = \(error)")
             })
+        }
+    }
+    
+    //上传图片方法
+    func uploadImage(urlStr: String, params: [String : Any]?, imageData: Data, finished: @escaping (_ retult: [String : Any]?, _ error: Error?) -> ()) {
+        
+//        self.responseSerializer = AFJSONResponseSerializer()
+//        self.requestSerializer.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Accept")
+        //上传文件到服务器
+        post(urlStr, parameters: params, constructingBodyWith: { (multipartFromData) in
+            /// data: 要上传的文件数据
+            /// name: 上传的服务器对应的字段
+            /// fileName: 服务器上存储的名称
+            /// mimeType: 上传文件格式 : image/jpeg
+            multipartFromData.appendPart(withFileData: imageData, name: "pic", fileName: "OMG", mimeType: "image/jpeg")
+        }, progress: nil, success: { (_, result) in
+            if let rs = result as? [String : Any] {
+                finished(rs, nil)
+            }
+        }) { (_, error) in
+            debugPrint("error = \(error)")
+            finished(nil, error)
         }
     }
 }
