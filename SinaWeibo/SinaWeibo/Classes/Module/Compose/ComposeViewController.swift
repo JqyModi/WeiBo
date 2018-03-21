@@ -36,7 +36,7 @@ class ComposeViewController: UIViewController {
         //要发布的微博文本内容，必须做URLencode，内容不超过140个汉字
         let text = textView.text
         let urlEncodeText = text?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let params = ["access_token": token, "status" : urlEncodeText]
+        let params = ["access_token": token, "status" : urlEncodeText!]
         
         if selectorVC.imageList.count >= 1 {
             let url = "https://upload.api.weibo.com/2/statuses/upload.json"

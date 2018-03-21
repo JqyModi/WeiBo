@@ -17,6 +17,7 @@
 		044CEAF01FDF5D450006694A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */; };
 		044CEAF21FDF61A40006694A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEAF11FDF61A40006694A /* UILabel+Extension.swift */; };
 		044D41431FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D41421FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift */; };
+		0452EF241FE8A7E000E0EE84 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0452EF231FE8A7E000E0EE84 /* UIImage+Extension.swift */; };
 		0454F6C81FE250C9000907A3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F6C71FE250C9000907A3 /* UIView+Extension.swift */; };
 		0454F6CA1FE25331000907A3 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F6C91FE25331000907A3 /* TempViewController.swift */; };
 		046365DA1FE25F4D002A3C08 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046365D91FE25F4D002A3C08 /* NetWorkTools.swift */; };
@@ -64,6 +65,7 @@
 		044CEAEF1FDF5D450006694A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		044CEAF11FDF61A40006694A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		044D41421FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		0452EF231FE8A7E000E0EE84 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		0454F6C71FE250C9000907A3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0454F6C91FE25331000907A3 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		046365D91FE25F4D002A3C08 /* NetWorkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				047116E01FE0DC370000956E /* UIColor+Extension.swift */,
 				0454F6C71FE250C9000907A3 /* UIView+Extension.swift */,
 				044D41421FE3C71600F0B1A8 /* UIBarButtonItem+Extension.swift */,
+				0452EF231FE8A7E000E0EE84 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				04C3857A1FDA18AE0090D6D5 /* OAuthViewController.swift in Sources */,
 				04A0B6801FD7CD3D00013BE5 /* MainViewController.swift in Sources */,
 				046365DA1FE25F4D002A3C08 /* NetWorkTools.swift in Sources */,
+				0452EF241FE8A7E000E0EE84 /* UIImage+Extension.swift in Sources */,
 				0427D4CF1FE2147600AC9A6E /* RetweetStatusView.swift in Sources */,
 				044CC7691FDE6D3600C68446 /* NewFeatureCollectionViewController.swift in Sources */,
 				044CC7651FDE552200C68446 /* WelComeViewController.swift in Sources */,

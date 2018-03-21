@@ -93,7 +93,7 @@ class NetWorkTools: AFHTTPSessionManager {
             /// name: 上传的服务器对应的字段
             /// fileName: 服务器上存储的名称
             /// mimeType: 上传文件格式 : image/jpeg
-            multipartFromData.appendPart(withFileData: imageData, name: "pic", fileName: "OMG", mimeType: "image/jpeg")
+            multipartFromData.appendPart(withFileData: imageData, name: "picc", fileName: "OMMG", mimeType: "image/jpeg")
         }, progress: nil, success: { (_, result) in
             if let rs = result as? [String : Any] {
                 finished(rs, nil)

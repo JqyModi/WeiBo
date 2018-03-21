@@ -19,8 +19,10 @@ private struct OConstants {
     
     static let ClientIDKey = "client_id"
     static let RedirectUrlKey = "redirect_uri"
-    static let client_id = "4090434754"
-    static let client_secret = "666e08d518a86aa7b6b65fe7e4d5d01b"
+//    static let client_id = "4090434754"
+//    static let client_secret = "666e08d518a86aa7b6b65fe7e4d5d01b"
+    static let client_id = "3741495905"
+    static let client_secret = "ac04150cb219be86639859616a7d08d3"
     static let redirect_uri = "http://39.108.219.113/Music/index.html"
 }
 class OAuthViewController: UIViewController {

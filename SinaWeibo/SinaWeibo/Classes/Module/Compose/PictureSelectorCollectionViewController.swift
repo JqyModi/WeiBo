@@ -145,7 +145,8 @@ extension PictureSelectorCollectionViewController: UIImagePickerControllerDelega
             if let pic = image as? UIImage {
                 //压缩图片
                 debugPrint("pic = \(pic)")
-                imageList.append(pic)
+                let compressImage = pic.imageCompress(targetWidth: 100)
+                imageList.append(compressImage!)
                 dismiss(animated: true, completion: nil)
                 //刷新表格数据
                 collectionView?.reloadData()
